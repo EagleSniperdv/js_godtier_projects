@@ -66,7 +66,6 @@ const handleChat = () => {
     if(!userMsg) {
         alert('Enter text//')
     }
-<<<<<<< HEAD
     // console.log(userMsg);
 
     chatBox.appendChild(createChatLi(userMsg,"outgoing"));
@@ -81,10 +80,3 @@ const handleChat = () => {
 sendChatBtn.addEventListener("click",handleChat);
 
 
-=======
-    console.log(userMsg);
-}
-
-
-sendChatBtn.addEventListener("click",handleChat)
->>>>>>> 8579e3dea986d28c70c960cdfccda1cd52613fa3
