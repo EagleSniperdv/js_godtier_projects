@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tilt+Neon&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+:root {
+    --pri-c:#f6f7fb;
+    --white-c:#fff;
+    --black-c:#18191a;
+    --red-c:#e74c3c;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: var(--pri-c);
+}
+body.dark {
+    --pri-c:#242526;
+    --white-c:#18191a;
+    --black-c:#fff;
+    --red-c:#e74c3c;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+.container .clock {
+    display: flex;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: var(--white-c);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.clock label {
+    position: absolute;
+    inset: 20px;
+    text-align: center;
+    transform: rotate(calc(var(--i) * (360deg / 12)));
+}
+.clock label span {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--black-c);
+    transform: rotate(calc(var(--i) * (-360deg / 12)));
+}
+.container .indicator  {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: var(--red-c);
+    display: flex;
+    justify-content: center;
+}
+.indicator::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100;
+    z-index: 100;
+    border-radius: 50%;
+    background: var(--black-c);
+    border: 4px solid --red-c;
+}
+.indicator .hand {
+    position: absolute;
+    height: 130px;
+    width: 4px;
+    bottom: 0;
+    border-radius: 25px;
+    transform-origin: bottom;
+    background: var(--red-c);
+}
+.hand.minute {
+    height: 120px;
+    width: 5px;
+    background: var(--black-c);
+}
+.hand.hour {
+    height: 120px;
+    width: 5px;
+    background: var(--black-c);
+}
+.mode-switch {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: 400;
+    display: inline-block;
+    color: var(--white-c);
+    background: var(--black-c);
+    box-shadow: 0 5px 1opx rgba(0, 0, 0, 0.1);
+}
