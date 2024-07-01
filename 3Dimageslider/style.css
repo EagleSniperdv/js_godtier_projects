@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tilt+Neon&display=swap');
-@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -16,12 +16,13 @@
 .banner .slider {
     position: absolute;
     width: 200px;
-    height: 250px;
+    height: 200px;
     top: 10%;
     left: calc(50% - 100px);
     transform-style: preserve-3d;
     transform: perspective(1000px);
-    animation: autoRun 20s linear infinite;
+    animation: autoRun 80s linear infinite;
+    z-index: 2;
 }
 .banner .slider .item {
     position: absolute;
@@ -29,11 +30,13 @@
     transform: 
         rotateY(calc( (var(--position) - 1) *(360 / var(--quantity)) * 1deg))
         translateZ(550px);
+    
 }
 .banner .slider .item img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
 }
 .banner .content {
     position: absolute;
@@ -46,6 +49,40 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+}
+.banner .content h1{
+    font-family: 'Roboto',sans-serif;
+    font-size: 16em;
+    line-height: 1em;
+    color: #252838;
+    position: relative;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+.banner .content .author {
+    font-family: 'Poppins';
+    text-align: right;
+    max-width: 200px;
+}
+.banner .content h2 {
+    font-size: 3em;
+}
+.banner .content .model{
+    background-image: url(img/model.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
 }
 @keyframes autoRun {
     from {
